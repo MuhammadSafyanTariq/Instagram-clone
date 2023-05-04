@@ -1,8 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:insta_clone/Resource/Auth_Methods.dart';
 import 'package:insta_clone/Resource/FireStore_methods.dart';
 import 'package:insta_clone/Screens/login_Screen.dart';
@@ -68,7 +66,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
   @override
   Widget build(BuildContext context) {
     return isLoading
-        ? Center(
+        ? const Center(
             child: CircularProgressIndicator(),
           )
         : Scaffold(
@@ -170,19 +168,19 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       ),
                       Container(
                         alignment: Alignment.centerLeft,
-                        padding: EdgeInsets.only(
+                        padding: const EdgeInsets.only(
                           top: 15,
                         ),
                         child: Text(
                           userData['username'],
-                          style: TextStyle(
+                          style: const TextStyle(
                             fontWeight: FontWeight.bold,
                           ),
                         ),
                       ),
                       Container(
                         alignment: Alignment.centerLeft,
-                        padding: EdgeInsets.only(
+                        padding: const EdgeInsets.only(
                           top: 1,
                         ),
                         child: Text(
@@ -200,11 +198,12 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       .get(),
                   builder: (context, snapshot) {
                     if (snapshot.connectionState == ConnectionState.waiting) {
-                      return Center(child: CircularProgressIndicator());
+                      return const Center(child: CircularProgressIndicator());
                     }
                     return GridView.builder(
                       shrinkWrap: true,
-                      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                      gridDelegate:
+                          const SliverGridDelegateWithFixedCrossAxisCount(
                         crossAxisCount: 3,
                         crossAxisSpacing: 5,
                         mainAxisSpacing: 1.5,
@@ -243,7 +242,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
           ),
         ),
         Container(
-          padding: EdgeInsets.only(top: 4),
+          padding: const EdgeInsets.only(top: 4),
           child: Text(
             label,
             style: const TextStyle(

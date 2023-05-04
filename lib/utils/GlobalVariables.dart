@@ -7,10 +7,10 @@ import 'package:insta_clone/Screens/search_screen.dart';
 
 const webScreenSize = 600;
 List<Widget> homeScreenItems = [
-  FeedScreen(),
-  SearchScreen(),
-  AddPostScreen(),
-  Center(
+  const FeedScreen(),
+  const SearchScreen(),
+  const AddPostScreen(),
+  const Center(
     child: Text('...Wellcome to bunnygram...'),
   ),
   ProfileScreen(

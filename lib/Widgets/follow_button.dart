@@ -1,7 +1,4 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 
 class FollowButton extends StatelessWidget {
   final Function()? function;
@@ -32,6 +29,8 @@ class FollowButton extends StatelessWidget {
             borderRadius: BorderRadius.circular(5),
           ),
           alignment: Alignment.center,
+          width: 240,
+          height: 27,
           child: Text(
             text,
             style: TextStyle(
@@ -39,8 +38,6 @@ class FollowButton extends StatelessWidget {
               fontWeight: FontWeight.bold,
             ),
           ),
-          width: 240,
-          height: 27,
         ),
       ),
     );

@@ -47,7 +47,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
   void goToLoginScreen() {
     Navigator.of(context).push(
       MaterialPageRoute(
-        builder: (context) => LoginScreen(),
+        builder: (context) => const LoginScreen(),
       ),
     );
   }
@@ -76,7 +76,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
     } else {
       Navigator.of(context).pushReplacement(
         MaterialPageRoute(
-          builder: (context) => ResponsiveLayout(
+          builder: (context) => const ResponsiveLayout(
               webScreenLayout: WebScreenLayout(),
               mobileScreenLayout: MobileScreenLayout()),
         ),
@@ -193,7 +193,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                         : const Text("Sign up"),
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 103,
                 ),
                 Row(

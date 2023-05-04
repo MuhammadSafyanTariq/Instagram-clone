@@ -1,7 +1,4 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:insta_clone/Provider/user_provider.dart';
 import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
@@ -31,7 +28,7 @@ class _CommentCardState extends State<CommentCard> {
           ),
           Expanded(
             child: Padding(
-              padding: EdgeInsets.only(
+              padding: const EdgeInsets.only(
                 left: 16,
               ),
               child: Column(
@@ -54,14 +51,14 @@ class _CommentCardState extends State<CommentCard> {
                     ),
                   ),
                   Padding(
-                    padding: EdgeInsets.only(
+                    padding: const EdgeInsets.only(
                       top: 4,
                     ),
                     child: Text(
                       DateFormat.yMMMd().format(
                         widget.snap['datePublished'].toDate(),
                       ),
-                      style: TextStyle(
+                      style: const TextStyle(
                         fontSize: 12,
                         fontWeight: FontWeight.w400,
                       ),
@@ -72,8 +69,8 @@ class _CommentCardState extends State<CommentCard> {
             ),
           ),
           Container(
-            padding: EdgeInsets.all(8),
-            child: Icon(
+            padding: const EdgeInsets.all(8),
+            child: const Icon(
               Icons.favorite,
               size: 16,
             ),

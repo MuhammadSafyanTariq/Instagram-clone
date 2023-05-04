@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:insta_clone/Resource/Auth_Methods.dart';
 import 'package:insta_clone/Screens/sign_up_screen.dart';
 import 'package:insta_clone/Widgets/text_input_feilds.dart';
@@ -41,7 +40,7 @@ class _LoginScreenState extends State<LoginScreen> {
     if (res == "success") {
       Navigator.of(context).pushReplacement(
         MaterialPageRoute(
-          builder: (context) => ResponsiveLayout(
+          builder: (context) => const ResponsiveLayout(
               webScreenLayout: WebScreenLayout(),
               mobileScreenLayout: MobileScreenLayout()),
         ),
@@ -54,7 +53,7 @@ class _LoginScreenState extends State<LoginScreen> {
   void goTOSignUpScreen() {
     Navigator.of(context).push(
       MaterialPageRoute(
-        builder: (context) => SignUpScreen(),
+        builder: (context) => const SignUpScreen(),
       ),
     );
   }
@@ -65,20 +64,20 @@ class _LoginScreenState extends State<LoginScreen> {
       body: SafeArea(
         child: SingleChildScrollView(
           child: Container(
-            padding: EdgeInsets.symmetric(
+            padding: const EdgeInsets.symmetric(
               horizontal: 32,
             ),
             width: double.infinity,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                Image(
+                const Image(
                   image: AssetImage(
                     'assets/Bunny.png',
                   ),
                   height: 250,
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 50,
                 ),
                 TextInputFeilds(
@@ -121,7 +120,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         : const Text("Log in"),
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 10,
                 ),
                 Row(

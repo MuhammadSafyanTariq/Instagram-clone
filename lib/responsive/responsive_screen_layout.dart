@@ -1,6 +1,4 @@
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:insta_clone/Provider/user_provider.dart';
 import 'package:insta_clone/utils/GlobalVariables.dart';
 import 'package:provider/provider.dart';

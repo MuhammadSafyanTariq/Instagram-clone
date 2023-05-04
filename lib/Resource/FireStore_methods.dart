@@ -1,9 +1,6 @@
-import 'dart:ffi';
-
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/foundation.dart';
-import 'package:insta_clone/Resource/Auth_Methods.dart';
 import 'package:insta_clone/Resource/storage_methods.dart';
 import 'package:uuid/uuid.dart';
 

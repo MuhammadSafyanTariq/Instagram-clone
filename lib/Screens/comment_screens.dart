@@ -16,7 +16,7 @@ class CommentScreen extends StatefulWidget {
 }
 
 class _CommentScreenState extends State<CommentScreen> {
-  TextEditingController _commentController = TextEditingController();
+  final TextEditingController _commentController = TextEditingController();
   @override
   void dispose() {
     super.dispose();
@@ -28,7 +28,7 @@ class _CommentScreenState extends State<CommentScreen> {
     final UserModel user = Provider.of<UserProvider>(context).getUser;
     return Scaffold(
       appBar: AppBar(
-        title: Text('Comments'),
+        title: const Text('Comments'),
       ),
       body: StreamBuilder(
         stream: FirebaseFirestore.instance
@@ -88,7 +88,7 @@ class _CommentScreenState extends State<CommentScreen> {
                   _commentController.text = "";
                 },
                 child: Container(
-                  padding: EdgeInsets.symmetric(
+                  padding: const EdgeInsets.symmetric(
                     vertical: 8,
                     horizontal: 8,
                   ),

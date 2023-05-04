@@ -1,9 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:insta_clone/Models/user.dart';
 import 'package:insta_clone/Provider/user_provider.dart';
 import 'package:insta_clone/Resource/FireStore_methods.dart';
@@ -45,7 +41,7 @@ class _PostCardState extends State<PostCard> {
     } catch (e) {
       showSnackBar(e.toString(), context);
     }
-    setState(() {});
+    //setState(() {});
   }
 
   @override
@@ -53,11 +49,11 @@ class _PostCardState extends State<PostCard> {
     final UserModel user = Provider.of<UserProvider>(context).getUser;
     return Container(
       color: mobileBackgroundColor,
-      padding: EdgeInsets.symmetric(vertical: 10),
+      padding: const EdgeInsets.symmetric(vertical: 10),
       child: Column(
         children: [
           Container(
-            padding: EdgeInsets.symmetric(
+            padding: const EdgeInsets.symmetric(
               vertical: 4,
               horizontal: 16,
             ).copyWith(right: 0),
@@ -70,7 +66,7 @@ class _PostCardState extends State<PostCard> {
                     )),
                 Expanded(
                   child: Padding(
-                    padding: EdgeInsets.only(
+                    padding: const EdgeInsets.only(
                       left: 8,
                     ),
                     child: Column(
@@ -79,7 +75,7 @@ class _PostCardState extends State<PostCard> {
                       children: [
                         Text(
                           widget.snap['username'],
-                          style: TextStyle(fontWeight: FontWeight.bold),
+                          style: const TextStyle(fontWeight: FontWeight.bold),
                         ),
                       ],
                     ),
@@ -104,7 +100,7 @@ class _PostCardState extends State<PostCard> {
                                     Navigator.of(context).pop();
                                   },
                                   child: Container(
-                                    padding: EdgeInsets.symmetric(
+                                    padding: const EdgeInsets.symmetric(
                                       vertical: 12,
                                       horizontal: 16,
                                     ),
@@ -117,7 +113,7 @@ class _PostCardState extends State<PostCard> {
                       ),
                     );
                   },
-                  icon: Icon(
+                  icon: const Icon(
                     Icons.more_vert,
                   ),
                 ),
@@ -147,14 +143,9 @@ class _PostCardState extends State<PostCard> {
                   ),
                 ),
                 AnimatedOpacity(
-                  duration: Duration(milliseconds: 200),
+                  duration: const Duration(milliseconds: 200),
                   opacity: isLikeAnimating ? 1 : 0,
                   child: LikeAnimation(
-                    child: const Icon(
-                      Icons.favorite,
-                      color: Colors.white,
-                      size: 100,
-                    ),
                     isAnimating: isLikeAnimating,
                     duration: const Duration(milliseconds: 400),
                     onEnd: () {
@@ -164,6 +155,11 @@ class _PostCardState extends State<PostCard> {
                         },
                       );
                     },
+                    child: const Icon(
+                      Icons.favorite,
+                      color: Colors.white,
+                      size: 100,
+                    ),
                   ),
                 ),
               ],
@@ -183,7 +179,7 @@ class _PostCardState extends State<PostCard> {
                       );
                     },
                     icon: widget.snap['likes'].contains(user.uid)
-                        ? Icon(
+                        ? const Icon(
                             Icons.favorite,
                             color: Colors.red,
                           )
@@ -195,13 +191,13 @@ class _PostCardState extends State<PostCard> {
                     snap: widget.snap,
                   ),
                 )),
-                icon: Icon(
+                icon: const Icon(
                   Icons.comment_outlined,
                 ),
               ),
               IconButton(
                 onPressed: () {},
-                icon: Icon(
+                icon: const Icon(
                   Icons.send,
                 ),
               ),
@@ -209,7 +205,7 @@ class _PostCardState extends State<PostCard> {
                 child: Align(
                   alignment: Alignment.bottomRight,
                   child: IconButton(
-                    icon: Icon(Icons.bookmark_border),
+                    icon: const Icon(Icons.bookmark_border),
                     onPressed: () {},
                   ),
                 ),
@@ -225,17 +221,17 @@ class _PostCardState extends State<PostCard> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 DefaultTextStyle(
-                  style: Theme.of(context).textTheme.subtitle2!.copyWith(
+                  style: Theme.of(context).textTheme.titleSmall!.copyWith(
                         fontWeight: FontWeight.w800,
                       ),
                   child: Text(
                     '${widget.snap["likes"].length} likes',
-                    style: Theme.of(context).textTheme.bodyText2,
+                    style: Theme.of(context).textTheme.bodyMedium,
                   ),
                 ),
                 Container(
                   width: double.infinity,
-                  padding: EdgeInsets.only(
+                  padding: const EdgeInsets.only(
                     top: 8,
                   ),
                   child: RichText(
@@ -244,13 +240,13 @@ class _PostCardState extends State<PostCard> {
                       children: [
                         TextSpan(
                           text: widget.snap['username'],
-                          style: TextStyle(
+                          style: const TextStyle(
                             fontWeight: FontWeight.bold,
                           ),
                         ),
                         TextSpan(
                           text: "   " + widget.snap['description'],
-                          style: TextStyle(
+                          style: const TextStyle(
                             fontWeight: FontWeight.bold,
                           ),
                         ),
@@ -261,12 +257,12 @@ class _PostCardState extends State<PostCard> {
                 InkWell(
                   onTap: () {},
                   child: Container(
-                    padding: EdgeInsets.symmetric(
+                    padding: const EdgeInsets.symmetric(
                       vertical: 4,
                     ),
                     child: Text(
                       "view all $commentLen comments",
-                      style: TextStyle(
+                      style: const TextStyle(
                         fontSize: 16,
                         color: secondaryColor,
                       ),
@@ -274,14 +270,14 @@ class _PostCardState extends State<PostCard> {
                   ),
                 ),
                 Container(
-                  padding: EdgeInsets.symmetric(
+                  padding: const EdgeInsets.symmetric(
                     vertical: 4,
                   ),
                   child: Text(
                     DateFormat.yMMMd().format(
                       widget.snap['datePublished'].toDate(),
                     ),
-                    style: TextStyle(
+                    style: const TextStyle(
                       fontSize: 16,
                       color: secondaryColor,
                     ),

@@ -1,7 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:insta_clone/Screens/profile_Screen.dart';
 import 'package:insta_clone/utils/GlobalVariables.dart';
@@ -15,7 +13,7 @@ class SearchScreen extends StatefulWidget {
 }
 
 class _SearchScreenState extends State<SearchScreen> {
-  TextEditingController _searchController = TextEditingController();
+  final TextEditingController _searchController = TextEditingController();
   bool isShowUsers = false;
   bool isLoading = false;
   @override
@@ -31,7 +29,7 @@ class _SearchScreenState extends State<SearchScreen> {
         backgroundColor: mobileBackgroundColor,
         title: TextFormField(
           controller: _searchController,
-          decoration: InputDecoration(
+          decoration: const InputDecoration(
             labelText: 'Search for a user ...',
           ),
           onFieldSubmitted: (String _) {
@@ -56,7 +54,7 @@ class _SearchScreenState extends State<SearchScreen> {
                   );
                 }
                 return snapshot.data == null
-                    ? Center(
+                    ? const Center(
                         child: CircularProgressIndicator(),
                       )
                     : ListView.builder(
@@ -90,12 +88,12 @@ class _SearchScreenState extends State<SearchScreen> {
               future: FirebaseFirestore.instance.collection('posts').get(),
               builder: (context, snapshot) {
                 if (!snapshot.hasData) {
-                  Center(
+                  const Center(
                     child: CircularProgressIndicator(),
                   );
                 }
                 return snapshot.data == null
-                    ? Center(
+                    ? const Center(
                         child: CircularProgressIndicator(),
                       )
                     : StaggeredGridView.countBuilder(
