@@ -81,42 +81,6 @@ class _PostCardState extends State<PostCard> {
                     ),
                   ),
                 ),
-                IconButton(
-                  onPressed: () {
-                    showDialog(
-                      context: context,
-                      builder: (context) => Dialog(
-                        child: ListView(
-                          padding: const EdgeInsets.symmetric(
-                            vertical: 16,
-                          ),
-                          shrinkWrap: true,
-                          children: ["Delete"]
-                              .map(
-                                (e) => InkWell(
-                                  onTap: () {
-                                    firestoreMethods()
-                                        .deletePost(widget.snap['postId']);
-                                    Navigator.of(context).pop();
-                                  },
-                                  child: Container(
-                                    padding: const EdgeInsets.symmetric(
-                                      vertical: 12,
-                                      horizontal: 16,
-                                    ),
-                                    child: Text(e),
-                                  ),
-                                ),
-                              )
-                              .toList(),
-                        ),
-                      ),
-                    );
-                  },
-                  icon: const Icon(
-                    Icons.more_vert,
-                  ),
-                ),
               ],
             ),
           ),
@@ -196,7 +160,12 @@ class _PostCardState extends State<PostCard> {
                 ),
               ),
               IconButton(
-                onPressed: () {},
+                onPressed: () => ScaffoldMessenger.of(context).showSnackBar(
+                  SnackBar(
+                    content:
+                        Text('Sorry this feature will be supported in future'),
+                  ),
+                ),
                 icon: const Icon(
                   Icons.send,
                 ),
@@ -206,7 +175,12 @@ class _PostCardState extends State<PostCard> {
                   alignment: Alignment.bottomRight,
                   child: IconButton(
                     icon: const Icon(Icons.bookmark_border),
-                    onPressed: () {},
+                    onPressed: () => ScaffoldMessenger.of(context).showSnackBar(
+                      SnackBar(
+                        content: Text(
+                            'Sorry this feature will be supported in future'),
+                      ),
+                    ),
                   ),
                 ),
               ),

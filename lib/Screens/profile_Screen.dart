@@ -29,6 +29,39 @@ class _ProfileScreenState extends State<ProfileScreen> {
     getData();
   }
 
+  void deletePost(DocumentSnapshot snap) {
+    showDialog(
+      context: context,
+      builder: (context) => Dialog(
+        child: ListView(
+          padding: const EdgeInsets.symmetric(
+            vertical: 16,
+          ),
+          shrinkWrap: true,
+          children: ["Delete"]
+              .map(
+                (e) => InkWell(
+                  onTap: () {
+                    firestoreMethods()
+                        .deletePost((snap.data()! as dynamic)['postId']);
+                    Navigator.of(context).pop();
+                  },
+                  child: Container(
+                    padding: const EdgeInsets.symmetric(
+                      vertical: 12,
+                      horizontal: 16,
+                    ),
+                    child: Text(e),
+                  ),
+                ),
+              )
+              .toList(),
+        ),
+      ),
+    );
+    setState(() {});
+  }
+
   getData() async {
     setState(() {
       isLoading = true;
@@ -105,6 +138,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                   ],
                                 ),
                                 Row(
+                                  mainAxisAlignment: MainAxisAlignment.center,
                                   children: [
                                     FirebaseAuth.instance.currentUser!.uid ==
                                             widget.uid
@@ -213,11 +247,14 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       itemBuilder: (context, index) {
                         DocumentSnapshot snap =
                             (snapshot.data! as dynamic).docs[index];
-                        return Container(
-                          child: Image(
-                            image: NetworkImage(
-                                (snap.data()! as dynamic)['postUrl']),
-                            fit: BoxFit.cover,
+                        return InkWell(
+                          onTap: () => deletePost(snap),
+                          child: Container(
+                            child: Image(
+                              image: NetworkImage(
+                                  (snap.data()! as dynamic)['postUrl']),
+                              fit: BoxFit.cover,
+                            ),
                           ),
                         );
                       },

@@ -77,9 +77,6 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
                   height: 250,
                 ),
-                const SizedBox(
-                  height: 50,
-                ),
                 TextInputFeilds(
                   textEditingController: _emailController,
                   hintText: "Please enter the email",

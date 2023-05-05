@@ -1,3 +1,4 @@
+import 'package:animated_splash_screen/animated_splash_screen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/foundation.dart';
@@ -54,9 +55,27 @@ class MyApp extends StatelessWidget {
               // Checking if the snapshot has any data or not
               if (snapshot.hasData) {
                 // if snapshot has data which means user is logged in then we check the width of screen and accordingly display the screen layout
-                return const ResponsiveLayout(
-                  mobileScreenLayout: MobileScreenLayout(),
-                  webScreenLayout: WebScreenLayout(),
+                return AnimatedSplashScreen(
+                  splashIconSize: 300,
+                  splash: Column(
+                    children: [
+                      const Image(
+                        image: AssetImage(
+                          'assets/Bunny.png',
+                        ),
+                      ),
+                      Text(
+                        "Developed By Muhammad Safyan",
+                      ),
+                      Icon(Icons.favorite_outline)
+                    ],
+                  ),
+                  splashTransition: SplashTransition.slideTransition,
+                  backgroundColor: mobileBackgroundColor,
+                  nextScreen: const ResponsiveLayout(
+                    mobileScreenLayout: MobileScreenLayout(),
+                    webScreenLayout: WebScreenLayout(),
+                  ),
                 );
               } else if (snapshot.hasError) {
                 return const Center(
@@ -72,7 +91,18 @@ class MyApp extends StatelessWidget {
               );
             }
 
-            return const LoginScreen();
+            return AnimatedSplashScreen(
+              centered: true,
+              splashIconSize: 250,
+              splash: const Image(
+                image: AssetImage(
+                  'assets/Bunny.png',
+                ),
+              ),
+              splashTransition: SplashTransition.slideTransition,
+              backgroundColor: mobileBackgroundColor,
+              nextScreen: const LoginScreen(),
+            );
           },
         ),
       ),

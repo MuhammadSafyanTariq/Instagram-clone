@@ -87,6 +87,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final screenHeight = MediaQuery.of(context).size.height;
     return Scaffold(
       body: SafeArea(
         child: SingleChildScrollView(
@@ -99,11 +100,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 const SizedBox(
-                  height: 100,
-                ),
-                SvgPicture.asset(
-                  "assets/instaLogo.svg",
-                  color: primaryColor,
+                  height: 30,
                 ),
                 InkWell(
                   onTap: () {
@@ -113,11 +110,11 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     children: [
                       _image != null
                           ? CircleAvatar(
-                              radius: 64,
+                              radius: 100,
                               backgroundImage: MemoryImage(_image!),
                             )
                           : const CircleAvatar(
-                              radius: 64,
+                              radius: 100,
                               backgroundImage: AssetImage(
                                 'assets/Bunny.png',
                               ),
@@ -193,8 +190,8 @@ class _SignUpScreenState extends State<SignUpScreen> {
                         : const Text("Sign up"),
                   ),
                 ),
-                const SizedBox(
-                  height: 103,
+                SizedBox(
+                  height: screenHeight * 0.1,
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,

@@ -20,7 +20,11 @@ class FeedScreen extends StatelessWidget {
         ),
         actions: [
           IconButton(
-            onPressed: () {},
+            onPressed: () => ScaffoldMessenger.of(context).showSnackBar(
+              SnackBar(
+                content: Text('Sorry this feature will be supported in future'),
+              ),
+            ),
             icon: const Icon(Icons.message_outlined),
           ),
         ],
