@@ -56,19 +56,12 @@ class MyApp extends StatelessWidget {
               if (snapshot.hasData) {
                 // if snapshot has data which means user is logged in then we check the width of screen and accordingly display the screen layout
                 return AnimatedSplashScreen(
+                  duration: 1000,
                   splashIconSize: 300,
-                  splash: Column(
-                    children: [
-                      const Image(
-                        image: AssetImage(
-                          'assets/Bunny.png',
-                        ),
-                      ),
-                      Text(
-                        "Developed By Muhammad Safyan",
-                      ),
-                      Icon(Icons.favorite_outline)
-                    ],
+                  splash: const Image(
+                    image: AssetImage(
+                      'assets/Bunny.png',
+                    ),
                   ),
                   splashTransition: SplashTransition.slideTransition,
                   backgroundColor: mobileBackgroundColor,
@@ -92,7 +85,7 @@ class MyApp extends StatelessWidget {
             }
 
             return AnimatedSplashScreen(
-              centered: true,
+              duration: 1000,
               splashIconSize: 250,
               splash: const Image(
                 image: AssetImage(

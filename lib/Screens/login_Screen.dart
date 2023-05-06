@@ -71,11 +71,17 @@ class _LoginScreenState extends State<LoginScreen> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
+                SizedBox(
+                  height: 30,
+                ),
                 const Image(
                   image: AssetImage(
                     'assets/Bunny.png',
                   ),
-                  height: 250,
+                  height: 230,
+                ),
+                SizedBox(
+                  height: 30,
                 ),
                 TextInputFeilds(
                   textEditingController: _emailController,

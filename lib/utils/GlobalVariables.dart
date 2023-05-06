@@ -11,7 +11,14 @@ List<Widget> homeScreenItems = [
   const SearchScreen(),
   const AddPostScreen(),
   const Center(
-    child: Text('...Wellcome to bunnygram...'),
+    child: Text(
+      'Welcome to Bunnygram',
+      style: TextStyle(
+        fontFamily: 'Billabong',
+        fontSize: 35,
+        fontWeight: FontWeight.w500,
+      ),
+    ),
   ),
   ProfileScreen(
     uid: FirebaseAuth.instance.currentUser!.uid,

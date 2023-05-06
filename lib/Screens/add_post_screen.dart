@@ -113,13 +113,24 @@ class _AddPostScreenState extends State<AddPostScreen> {
     final UserProvider userProvider = Provider.of<UserProvider>(context);
 
     return _file == null
-        ? Center(
-            child: IconButton(
-              icon: const Icon(
-                Icons.upload,
+        ? Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              IconButton(
+                icon: const Icon(
+                  Icons.upload,
+                ),
+                onPressed: () => _selectImage(context),
               ),
-              onPressed: () => _selectImage(context),
-            ),
+              Text(
+                'Add a post',
+                style: TextStyle(
+                  fontFamily: 'Billabong',
+                  fontSize: 35,
+                  fontWeight: FontWeight.w500,
+                ),
+              ),
+            ],
           )
         : Scaffold(
             appBar: AppBar(

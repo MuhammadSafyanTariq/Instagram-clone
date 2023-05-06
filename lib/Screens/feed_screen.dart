@@ -13,11 +13,24 @@ class FeedScreen extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: mobileBackgroundColor,
         centerTitle: false,
-        title: SvgPicture.asset(
-          'assets/instaLogo.svg',
-          color: primaryColor,
-          height: 32,
+        title: SizedBox(
+          child: Padding(
+            padding: const EdgeInsets.all(10),
+            child: Text(
+              'Bunnygram',
+              style: TextStyle(
+                fontFamily: 'Billabong',
+                fontSize: 35,
+                fontWeight: FontWeight.w500,
+              ),
+            ),
+          ),
         ),
+        // title: SvgPicture.asset(
+        //   'assets/bunnylogo.svg',
+        //   color: primaryColor,
+        //   height: 32,
+        // ),
         actions: [
           IconButton(
             onPressed: () => ScaffoldMessenger.of(context).showSnackBar(
